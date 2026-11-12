@@ -30,3 +30,10 @@ Verified on GenLayer StudioNet, chain 61999, on 2026-11-12. Deployment and trans
 3. Run `lock_policy`, `submit_claim`, and `review_claim` using the respective IDs returned by Studio. Wait for finalization and read the claim. The dashboard can prepare the arguments and track the hashes.
 
 The local suite contains 12 contract tests and 4 frontend transaction-state tests. It covers exact suffixes, date boundaries, issuer paths, buyer binding, unavailable or changed evidence, duplicate receipts, bounded retries, and consensus disagreement.
+
+## Browser verification
+
+The public dashboard returned the locked policy and both finalized claim records. The tracker distinguished a successful review from the rejected repeat review. The workspace also prepared the policy URL and SHA-256 for Studio signing.
+
+- [Model comparison screenshot](evidence/RebateProof-comparison.jpg)
+- [Finalized claim and receipt tracker screenshot](evidence/RebateProof-finalized-demo.jpg)

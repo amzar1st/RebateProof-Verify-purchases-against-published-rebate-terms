@@ -4,6 +4,7 @@
 | --- | --- |
 | Contribution type | Builder → Projects |
 | Project name | RebateProof |
+| Logo | [512 × 512 PNG](evidence/RebateProof-logo.png) |
 | Application date | 2026-11-12 |
 | Primary tag | Real-World Data, or the closest available category |
 | Secondary tags | Oracles, Consumer Verification, if available under the selected category |
