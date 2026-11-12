@@ -13,13 +13,14 @@ export const fields = {
 
 export function receiptState(tx) {
   const stage = tx.statusName ?? tx.status;
-  const execution = tx.txExecutionResultName ?? tx.txExecutionResult;
+  const legacyLeader = [tx.consensus_data?.leader_receipt].flat().filter(Boolean).at(-1);
+  const execution = tx.txExecutionResultName ?? tx.txExecutionResult ?? legacyLeader?.execution_result;
   if (['CANCELED', 'UNDETERMINED', 'VALIDATORS_TIMEOUT', 'LEADER_TIMEOUT'].includes(stage)) {
     return { terminal: true, label: `Consensus ended · ${stage}` };
   }
   if (stage === 'FINALIZED') {
-    if (execution === 'FINISHED_WITH_RETURN' || execution === 1) return { terminal: true, label: 'Finalized · contract execution succeeded' };
-    if (execution === 'FINISHED_WITH_ERROR' || execution === 2) return { terminal: true, label: 'Finalized · contract execution failed' };
+    if (['FINISHED_WITH_RETURN', 'SUCCESS', 1].includes(execution)) return { terminal: true, label: 'Finalized · contract execution succeeded' };
+    if (['FINISHED_WITH_ERROR', 'ERROR', 2].includes(execution)) return { terminal: true, label: 'Finalized · contract execution failed' };
     return { terminal: true, label: 'Finalized · execution result unavailable' };
   }
   return { terminal: false, label: `Awaiting finality · ${stage ?? 'status unavailable'}` };

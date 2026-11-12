@@ -39,6 +39,12 @@ function showRecord(record) {
       box.append(element('p', `${clause.replaceAll('_', ' ')} · ${passed ? 'Pass' : 'Fail'}`));
     }
   }
+  const sources = element('div', '', 'evidence');
+  const urls = record.decision ? [['Receipt', record.receipt_url], ['Listing', record.listing_url]] : [['Policy', record.url]];
+  for (const [label, url] of urls) {
+    if (typeof url === 'string' && url.startsWith('https://')) sources.append(link(label + ' evidence ↗', url));
+  }
+  box.append(sources);
   const details = element('details', '');
   details.append(element('summary', 'View raw chain record'), element('pre', JSON.stringify(record, null, 2)));
   box.append(details);
@@ -57,7 +63,7 @@ lookup.addEventListener('submit', async event => {
   button.disabled = true;
   status.textContent = 'Reading contract state…';
   try {
-    const value = await client.readContract({ address, functionName: `get_${kind}`, args: [id], transactionHashVariant: 'finalized' });
+    const value = await client.readContract({ address, functionName: `get_${kind}`, args: [id], transactionHashVariant: 'latest-final' });
     if (!value) {
       status.textContent = 'No record found for that ID.';
       return;
@@ -187,6 +193,19 @@ async function initialize() {
     if (txHashPattern.test(deployment.deploymentHash)) {
       byId('network').append(' · ', link('Deployment ↗', `${explorer}/tx/${deployment.deploymentHash}`));
       tracker.elements.hash.value = deployment.deploymentHash;
+    }
+    const transactions = [
+      ...(deployment.claims ?? []).map(claim => [claim.label + ' review', claim.reviewHash]),
+      ['Rejected review', deployment.rejectedReviewHash],
+    ];
+    for (const [label, hash] of transactions.filter(([, hash]) => txHashPattern.test(hash))) {
+      const button = element('button', label, 'button secondary');
+      button.type = 'button';
+      button.addEventListener('click', () => {
+        tracker.elements.hash.value = hash;
+        tracker.requestSubmit();
+      });
+      byId('transaction-examples').append(button);
     }
     const records = [{ id: deployment.policyId, label: 'Locked policy', kind: 'policy' },
       ...(deployment.claims ?? []).map(claim => ({ ...claim, kind: 'claim' }))];

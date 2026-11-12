@@ -53,9 +53,10 @@
       </form>
       <form id="tracker" class="card tool">
         <h3>Track a Studio transaction</h3>
-        <p>Sign in Studio with its built-in account, then paste the transaction hash here.</p>
+        <p>Sign the transaction in Studio with its built-in account, then paste the transaction hash here.</p>
         <label>Transaction hash<input name="hash" required pattern="0x[0-9a-fA-F]{64}" placeholder="0x…"></label>
         <button class="button primary">Check transaction</button>
+        <div id="transaction-examples" class="evidence" aria-label="Example transactions"></div>
         <p id="tx-status" role="status"></p><div id="tx-result"></div>
       </form>
     </div>

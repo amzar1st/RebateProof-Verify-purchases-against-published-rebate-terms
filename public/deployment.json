@@ -1,1 +1,30 @@
-{"network":"StudioNet","chainId":61999,"address":"0x6FaD6B937A12baA48F1888433cfC9867D2cC85D5","deploymentHash":"0x38faeb7c41aad3c694b38e2ab71b7ba1db6ded0ad116e22877ab6636c191d073","policyId":"","claims":[]}
+{
+  "network": "StudioNet",
+  "chainId": 61999,
+  "address": "0x6FaD6B937A12baA48F1888433cfC9867D2cC85D5",
+  "sourceSha256": "d268bc9b3c2bef2303807dff34c4be6daab0ff61aba7a072ac9ca6767edbf9d1",
+  "deploymentHash": "0x38faeb7c41aad3c694b38e2ab71b7ba1db6ded0ad116e22877ab6636c191d073",
+  "policyId": "861c68c5f8401586bed9aec4e0dd4d9f30fe554313a0b5f66dacf5b5aeaa78ef",
+  "policyHash": "0x8de8898515e0c0702889e375da95935182af94159610f1f95f2034c90a39496d",
+  "rejectedReviewHash": "0x48a2ebff9be25d8078b369213544d86bc7ff4fe48ac85e551026fe55a5ec98ca",
+  "claims": [
+    {
+      "label": "AER-2400-PRO",
+      "id": "6edb6cef4aba72cd3bdf3d682354af7d1a48b3656cefb049e87f330ad99e88bb",
+      "submitHash": "0xe498571fcb923598a7697f0a74d55027bcc4981e6f3e065aaad040042691416f",
+      "reviewHash": "0x68d23b128e35fd2a21cf144a58f1a739d9ea0b6b8bae70d76beb9f60789f9d84",
+      "decisionSha256": "16d97629e011c2e93658032626b4b789ee84ed8bdda4a7af7e98b8ad19ef240c",
+      "status": "ELIGIBLE",
+      "rebateMinor": 15000
+    },
+    {
+      "label": "AER-2400",
+      "id": "f7aa8d18d5b84e19e688e18bca8c50903064cdf4b358ae2003b053093c07b0d3",
+      "submitHash": "0x0e525d48806afcec05c9f13af30eebaaea7e5b38590df1f0322a8f9aa883b2ac",
+      "reviewHash": "0x0d6d89dce132c2540b0202a56e829ac24ea1bf7dbc633b038f8806c6154d661e",
+      "decisionSha256": "9ca53ca0e0c42f82ab8df8f40b79fa6ac76c79c3e72ccf5a72cd8f25322ea717",
+      "status": "INELIGIBLE",
+      "rebateMinor": 0
+    }
+  ]
+}
