@@ -1,0 +1,28 @@
+{
+  "name": "rebateproof",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "python -m unittest discover -s tests && node --test tests/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amzar1st/RebateProof-Verify-purchases-against-published-rebate-terms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/amzar1st/RebateProof-Verify-purchases-against-published-rebate-terms/issues"
+  },
+  "homepage": "https://github.com/amzar1st/RebateProof-Verify-purchases-against-published-rebate-terms#readme",
+  "dependencies": {
+    "genlayer-js": "1.1.8"
+  },
+  "private": true,
+  "devDependencies": {
+    "vite": "6.4.6"
+  }
+}

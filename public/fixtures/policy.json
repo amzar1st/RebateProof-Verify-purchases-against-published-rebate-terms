@@ -1,0 +1,11 @@
+{
+  "title": "Northline heat pump rebate",
+  "currency": "USD",
+  "start": "2026-10-01",
+  "end": "2026-11-30",
+  "sellers": {
+    "NORTHLINE": "https://raw.githubusercontent.com/amzar1st/RebateProof-Verify-purchases-against-published-rebate-terms/main/public/fixtures/receipts/"
+  },
+  "listing_prefix": "https://raw.githubusercontent.com/amzar1st/RebateProof-Verify-purchases-against-published-rebate-terms/main/public/fixtures/listings/",
+  "models": { "AER-2400-PRO": 15000 }
+}
